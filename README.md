@@ -46,6 +46,12 @@ npm run build
 npm test
 ```
 
+To run tests with coverage:
+
+```bash
+npm run test:coverage
+```
+
 ---
 
 ## 💅 Linting & Formatting
@@ -54,6 +60,12 @@ npm test
 
 ```bash
 npm run lint
+```
+
+- Auto-fix lint errors:
+
+```bash
+npm run lint:fix
 ```
 
 - Format code with Prettier:
@@ -71,7 +83,7 @@ Tailwind CSS is already set up (v4).
 To customize, edit:
 
 - `postcss.config.js` → PostCSS config
-- `src/index.css` → global styles
+- `src/styles/index.css` → global styles
 
 ---
 
@@ -87,9 +99,9 @@ Make sure Node.js correctly resolves the config based on your setup.
 
 ```bash
 /src
+  ├── styles/          # TailwindCSS and global styles
   ├── tests/           # Unit and integration tests
   ├── App.tsx          # Main App component
-  ├── index.css        # TailwindCSS and global styles
   └── index.tsx        # Entry point
 
 /.prettierrc           # Prettier configuration

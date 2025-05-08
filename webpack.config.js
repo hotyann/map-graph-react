@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -37,8 +38,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
+    new webpack.DefinePlugin({
+      'process.env.GoogleMapsAPIKey': JSON.stringify(
+        process.env.GoogleMapsAPIKey
+      ),
+      'process.env.GoogleMapsMapId': JSON.stringify(
+        process.env.GoogleMapsMapId
+      ),
+    }),
   ],
   devServer: {
+    historyApiFallback: true,
     static: './dist',
     hot: true,
     port: 3000,
