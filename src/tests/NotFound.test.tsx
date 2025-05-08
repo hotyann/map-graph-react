@@ -18,8 +18,8 @@ describe('NotFound Page', () => {
     const divElement = container.querySelector('div');
     expect(divElement).toHaveClass(
       'flex',
-      'min-h-screen',
       'flex-col',
+      'h-full',
       'items-center',
       'justify-center',
       'bg-gray-100'

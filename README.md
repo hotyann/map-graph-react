@@ -46,6 +46,12 @@ npm run build
 npm test
 ```
 
+To run tests with coverage:
+
+```bash
+npm run test:coverage
+```
+
 ---
 
 ## 💅 Linting & Formatting
@@ -54,6 +60,12 @@ npm test
 
 ```bash
 npm run lint
+```
+
+- Auto-fix lint errors:
+
+```bash
+npm run lint:fix
 ```
 
 - Format code with Prettier:
