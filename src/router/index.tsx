@@ -2,10 +2,10 @@ import React from 'react';
 import { Navigate, RouteObject } from 'react-router-dom';
 import SuspenseLazy from '@/components/SuspenseLazy';
 
-const Map = SuspenseLazy(
+const MapSample = SuspenseLazy(
   () => import(/* webpackChunkName:"map" */ '@/pages/Map')
 );
-const Graph = SuspenseLazy(
+const GraphSample = SuspenseLazy(
   () => import(/* webpackChunkName:"graph" */ '@/pages/Graph')
 );
 const NotFound = SuspenseLazy(
@@ -15,15 +15,15 @@ const NotFound = SuspenseLazy(
 const routes: Array<RouteObject> = [
   {
     path: '/',
-    element: <Navigate to="map" />,
+    element: <Navigate to="graph" />,
   },
   {
     path: 'map',
-    element: Map,
+    element: MapSample,
   },
   {
     path: 'graph',
-    element: Graph,
+    element: GraphSample,
   },
   {
     path: '*',

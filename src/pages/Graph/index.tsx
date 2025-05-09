@@ -1,111 +1,83 @@
-import React, { useCallback, useState } from 'react';
-import { PieChart, Pie, Sector } from 'recharts';
-import { PieData, CustomActiveShapeProps } from '@/types/graph';
+import React, { useState } from 'react';
+import Select from 'react-select';
+import AreaChartSample from '@/components/Charts/AreaChart';
+import BarChartSample from '@/components/Charts/BarChart';
+import LineChartSample from '@/components/Charts/LineChart';
+import ComposedChartSample from '@/components/Charts/ComposedChart';
+import PieChartSample from '@/components/Charts/PieChart';
+import RadarChartSample from '@/components/Charts/RadarChart';
+import RadialBarChartSample from '@/components/Charts/RadialBarChart';
+import ScatterChartSample from '@/components/Charts/ScatterChart';
+import FunnelChartSample from '@/components/Charts/FunnelChart';
+import TreemapSample from '@/components/Charts/Treemap';
+import SankeySample from '@/components/Charts/Sankey';
+import SunburstChartSample from '@/components/Charts/SunburstChart';
 
-const data: PieData[] = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
-];
-
-const renderActiveShape = (props: unknown) => {
-  const RADIAN = Math.PI / 180;
-  const {
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    endAngle,
-    fill,
-    payload,
-    percent,
-    value,
-  } = props as CustomActiveShapeProps;
-  const sin = Math.sin(-RADIAN * midAngle);
-  const cos = Math.cos(-RADIAN * midAngle);
-  const sx = cx + (outerRadius + 10) * cos;
-  const sy = cy + (outerRadius + 10) * sin;
-  const mx = cx + (outerRadius + 30) * cos;
-  const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-  const ey = my;
-  const textAnchor = cos >= 0 ? 'start' : 'end';
-
-  return (
-    <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-        {payload.name}
-      </text>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={outerRadius}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-      />
-      <Sector
-        cx={cx}
-        cy={cy}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        innerRadius={outerRadius + 6}
-        outerRadius={outerRadius + 10}
-        fill={fill}
-      />
-      <path
-        d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
-        stroke={fill}
-        fill="none"
-      />
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        textAnchor={textAnchor}
-        fill="#333"
-      >{`PV ${value}`}</text>
-      <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        dy={18}
-        textAnchor={textAnchor}
-        fill="#999"
-      >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
-      </text>
-    </g>
-  );
+type OptionType = {
+  value: string;
+  label: string;
 };
 
+const options: OptionType[] = [
+  { value: 'AreaChart', label: 'AreaChart' },
+  { value: 'BarChart', label: 'BarChart' },
+  { value: 'LineChart', label: 'LineChart' },
+  { value: 'ComposedChart', label: 'ComposedChart' },
+  { value: 'PieChart', label: 'PieChart' },
+  { value: 'RadarChart', label: 'RadarChart' },
+  { value: 'RadialBarChart', label: 'RadialBarChart' },
+  { value: 'ScatterChart', label: 'ScatterChart' },
+  { value: 'FunnelChart', label: 'FunnelChart' },
+  { value: 'Treemap', label: 'Treemap' },
+  { value: 'Sankey', label: 'Sankey' },
+  { value: 'SunburstChart', label: 'SunburstChart' },
+];
+
 const GraphSample: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const onPieEnter = useCallback(
-    (_: PieData, index: number) => {
-      setActiveIndex(index);
-    },
-    [setActiveIndex]
-  );
+  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+
+  const renderChart = () => {
+    switch (selectedOption?.value) {
+      case 'AreaChart':
+        return <AreaChartSample />;
+      case 'BarChart':
+        return <BarChartSample />;
+      case 'LineChart':
+        return <LineChartSample />;
+      case 'ComposedChart':
+        return <ComposedChartSample />;
+      case 'PieChart':
+        return <PieChartSample />;
+      case 'RadarChart':
+        return <RadarChartSample />;
+      case 'RadialBarChart':
+        return <RadialBarChartSample />;
+      case 'ScatterChart':
+        return <ScatterChartSample />;
+      case 'FunnelChart':
+        return <FunnelChartSample />;
+      case 'Treemap':
+        return <TreemapSample />;
+      case 'Sankey':
+        return <SankeySample />;
+      case 'SunburstChart':
+        return <SunburstChartSample />;
+      default:
+        return <div>Please select a chart to display.</div>;
+    }
+  };
 
   return (
-    <PieChart width={400} height={400}>
-      <Pie
-        activeIndex={activeIndex}
-        activeShape={renderActiveShape}
-        data={data}
-        cx={200}
-        cy={200}
-        innerRadius={60}
-        outerRadius={80}
-        fill="#8884d8"
-        dataKey="value"
-        onMouseEnter={onPieEnter}
+    <div className="p-4">
+      <Select
+        defaultValue={selectedOption}
+        onChange={setSelectedOption}
+        options={options}
       />
-    </PieChart>
+      <div className="flex flex-col items-center gap-4 mt-4">
+        {renderChart()}
+      </div>
+    </div>
   );
 };
 

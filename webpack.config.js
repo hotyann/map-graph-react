@@ -40,11 +40,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.GoogleMapsAPIKey': JSON.stringify(
-        process.env.GoogleMapsAPIKey
+        process.env.GOOGLE_MAPS_API_KEY
       ),
-      'process.env.GoogleMapsMapId': JSON.stringify(
-        process.env.GoogleMapsMapId
-      ),
+      'process.env.GoogleMapsMapId': JSON.stringify(process.env.GOOGLE_MAP_ID),
     }),
   ],
   devServer: {
