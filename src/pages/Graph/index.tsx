@@ -19,18 +19,18 @@ type OptionType = {
 };
 
 const options: OptionType[] = [
-  { value: 'AreaChart', label: 'AreaChart' },
-  { value: 'BarChart', label: 'BarChart' },
-  { value: 'LineChart', label: 'LineChart' },
-  { value: 'ComposedChart', label: 'ComposedChart' },
-  { value: 'PieChart', label: 'PieChart' },
-  { value: 'RadarChart', label: 'RadarChart' },
-  { value: 'RadialBarChart', label: 'RadialBarChart' },
-  { value: 'ScatterChart', label: 'ScatterChart' },
-  { value: 'FunnelChart', label: 'FunnelChart' },
-  { value: 'Treemap', label: 'Treemap' },
-  { value: 'Sankey', label: 'Sankey' },
-  { value: 'SunburstChart', label: 'SunburstChart' },
+  { value: 'area-chart', label: 'AreaChart' },
+  { value: 'bar-chart', label: 'BarChart' },
+  { value: 'line-chart', label: 'LineChart' },
+  { value: 'composed-chart', label: 'ComposedChart' },
+  { value: 'pie-chart', label: 'PieChart' },
+  { value: 'radar-chart', label: 'RadarChart' },
+  { value: 'radial-bar-chart', label: 'RadialBarChart' },
+  { value: 'scatter-chart', label: 'ScatterChart' },
+  { value: 'funnel-chart', label: 'FunnelChart' },
+  { value: 'treemap', label: 'Treemap' },
+  { value: 'sankey', label: 'Sankey' },
+  { value: 'sunburst-chart', label: 'SunburstChart' },
 ];
 
 const GraphSample: React.FC = () => {
@@ -38,29 +38,29 @@ const GraphSample: React.FC = () => {
 
   const renderChart = () => {
     switch (selectedOption?.value) {
-      case 'AreaChart':
+      case 'area-chart':
         return <AreaChartSample />;
-      case 'BarChart':
+      case 'bar-chart':
         return <BarChartSample />;
-      case 'LineChart':
+      case 'line-chart':
         return <LineChartSample />;
-      case 'ComposedChart':
+      case 'composed-chart':
         return <ComposedChartSample />;
-      case 'PieChart':
+      case 'pie-chart':
         return <PieChartSample />;
-      case 'RadarChart':
+      case 'radar-chart':
         return <RadarChartSample />;
-      case 'RadialBarChart':
+      case 'radial-bar-chart':
         return <RadialBarChartSample />;
-      case 'ScatterChart':
+      case 'scatter-chart':
         return <ScatterChartSample />;
-      case 'FunnelChart':
+      case 'funnel-chart':
         return <FunnelChartSample />;
-      case 'Treemap':
+      case 'treemap':
         return <TreemapSample />;
-      case 'Sankey':
+      case 'sankey':
         return <SankeySample />;
-      case 'SunburstChart':
+      case 'sunburst-chart':
         return <SunburstChartSample />;
       default:
         return <div>Please select a chart to display.</div>;

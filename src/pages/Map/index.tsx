@@ -1,46 +1,62 @@
-import React, { useMemo, useEffect } from 'react';
-import { APIProvider, Map, useMap } from '@vis.gl/react-google-maps';
-import { DeckProps } from '@deck.gl/core';
-import { ScatterplotLayer } from '@deck.gl/layers';
-import { GoogleMapsOverlay } from '@deck.gl/google-maps';
+import React, { useState } from 'react';
+import Select from 'react-select';
+import ArcLayerSample from '@/components/Graphs/ArcLayer';
+import ContourLayerSample from '@/components/Graphs/ContourLayer';
+import GeojsonLayerPolygonsSample from '@/components/Graphs/GeojsonLayerPolygons';
+import GeojsonLayerPathsSample from '@/components/Graphs/GeojsonLayerPaths';
 
-const GOOGLE_MAPS_API_KEY = process.env.GoogleMapsAPIKey || '';
-const GOOGLE_MAP_ID = process.env.GoogleMapsMapId || '';
+type OptionType = {
+  value: string;
+  label: string;
+};
 
-function DeckGLOverlay(props: DeckProps) {
-  const map = useMap();
-  const overlay = useMemo(() => new GoogleMapsOverlay(props), []);
+type GroupedOption = {
+  label: string;
+  options: OptionType[];
+};
 
-  useEffect(() => {
-    overlay.setMap(map);
-    return () => overlay.setMap(null);
-  }, [map]);
-
-  overlay.setProps(props);
-  return null;
-}
+const groupedOptions: GroupedOption[] = [
+  {
+    label: 'Layers',
+    options: [
+      { value: 'arc-layer', label: 'ArcLayer' },
+      { value: 'contour-layer', label: 'ContourLayer' },
+      { value: 'geojson-layer-polygons', label: 'GeoJsonLayer (Polygons)' },
+      { value: 'geojson-layer-paths', label: 'GeoJsonLayer (Paths)' },
+    ],
+  },
+];
 
 const MapSample: React.FC = () => {
-  const layers = [
-    new ScatterplotLayer({
-      id: 'deckgl-circle',
-      data: [{ position: [139.723023, 35.625836] }],
-      getPosition: (d) => d.position,
-      getFillColor: [255, 0, 0, 100],
-      getRadius: 1000,
-    }),
-  ];
+  const [selectedOption, setSelectedOption] = useState<OptionType | null>(
+    groupedOptions.slice(-1)[0].options.slice(-1)[0]
+  );
+
+  const renderGraph = () => {
+    switch (selectedOption?.value) {
+      case 'arc-layer':
+        return <ArcLayerSample />;
+      case 'contour-layer':
+        return <ContourLayerSample />;
+      case 'geojson-layer-polygons':
+        return <GeojsonLayerPolygonsSample />;
+      case 'geojson-layer-paths':
+        return <GeojsonLayerPathsSample />;
+      default:
+        return <div>Please select a chart to display.</div>;
+    }
+  };
 
   return (
-    <APIProvider apiKey={GOOGLE_MAPS_API_KEY}>
-      <Map
-        defaultCenter={{ lat: 35.625836, lng: 139.723023 }}
-        defaultZoom={11}
-        mapId={GOOGLE_MAP_ID}
-      >
-        <DeckGLOverlay layers={layers} />
-      </Map>
-    </APIProvider>
+    <div className="h-full relative overflow-hidden p-4">
+      <Select
+        className="z-1"
+        defaultValue={selectedOption}
+        onChange={setSelectedOption}
+        options={groupedOptions}
+      />
+      {renderGraph()}
+    </div>
   );
 };
 

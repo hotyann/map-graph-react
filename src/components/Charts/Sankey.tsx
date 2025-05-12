@@ -1,49 +1,6 @@
 import React from 'react';
 import { ResponsiveContainer, Sankey } from 'recharts';
-
-const data = {
-  nodes: [
-    { name: '収入' }, // Income
-    { name: '予算' }, // Budget
-    { name: '投資' }, // Investment
-    { name: '不動産' }, // Real Estate
-    { name: '暗号資産' }, // Crypto
-    { name: '株式・ファンド' }, // Stocks & Funds
-    { name: '貯金' }, // Saving
-    { name: 'SCPI' }, // SCPI
-    { name: 'ビットコイン' }, // Bitcoin
-    { name: 'イーサリアム' }, // Ethereum
-    { name: 'ソラナ' }, // Solana
-    { name: '住宅費' }, // Housing
-    { name: '食費' }, // Food
-    { name: '家賃' }, // Rent
-    { name: '光熱費' }, // Utility
-    { name: '住宅ローン' }, // Mortgage
-    { name: '食料品' }, // Groceries
-    { name: '配達' }, // Delivery
-    { name: 'レストラン' }, // Restaurant
-  ],
-  links: [
-    { source: 0, target: 1, value: 8500 },
-    { source: 1, target: 2, value: 2300 },
-    { source: 1, target: 3, value: 400 },
-    { source: 1, target: 4, value: 1250 },
-    { source: 2, target: 5, value: 1800 },
-    { source: 2, target: 6, value: 500 },
-    { source: 3, target: 7, value: 400 },
-    { source: 4, target: 8, value: 500 },
-    { source: 4, target: 9, value: 500 },
-    { source: 4, target: 10, value: 250 },
-    { source: 1, target: 11, value: 3384 },
-    { source: 1, target: 12, value: 800 },
-    { source: 11, target: 13, value: 1234 },
-    { source: 11, target: 14, value: 150 },
-    { source: 11, target: 15, value: 2000 },
-    { source: 12, target: 16, value: 450 },
-    { source: 12, target: 17, value: 200 },
-    { source: 12, target: 18, value: 150 },
-  ],
-};
+import data from '@/mocks/sankeyData.json';
 
 const colors = ['#3C898E', '#486DF0', '#6F50E5'];
 

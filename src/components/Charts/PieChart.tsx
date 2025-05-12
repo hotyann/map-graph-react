@@ -1,58 +1,7 @@
 import React from 'react';
 import { PieChart, Pie } from 'recharts';
-
-const data01 = [
-  {
-    name: '東京',
-    value: 400,
-  },
-  {
-    name: '大阪',
-    value: 300,
-  },
-  {
-    name: '名古屋',
-    value: 300,
-  },
-  {
-    name: '札幌',
-    value: 200,
-  },
-  {
-    name: '福岡',
-    value: 278,
-  },
-  {
-    name: '広島',
-    value: 189,
-  },
-];
-const data02 = [
-  {
-    name: '東京',
-    value: 2400,
-  },
-  {
-    name: '大阪',
-    value: 4567,
-  },
-  {
-    name: '名古屋',
-    value: 1398,
-  },
-  {
-    name: '札幌',
-    value: 9800,
-  },
-  {
-    name: '福岡',
-    value: 3908,
-  },
-  {
-    name: '広島',
-    value: 4800,
-  },
-];
+import data01 from '@/mocks/pieData01.json';
+import data02 from '@/mocks/pieData02.json';
 
 const PieChartSample: React.FC = () => {
   return (
