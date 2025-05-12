@@ -10,51 +10,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-
-const data = [
-  {
-    name: 'Tokyo',
-    uv: 9000,
-    pv: 7000,
-    amt: 8000,
-  },
-  {
-    name: 'Osaka',
-    uv: 8000,
-    pv: 6500,
-    amt: 7500,
-  },
-  {
-    name: 'Nagoya',
-    uv: 7000,
-    pv: 6000,
-    amt: 7000,
-  },
-  {
-    name: 'Sapporo',
-    uv: 6000,
-    pv: 5500,
-    amt: 6500,
-  },
-  {
-    name: 'Fukuoka',
-    uv: 5000,
-    pv: 5000,
-    amt: 6000,
-  },
-  {
-    name: 'Hiroshima',
-    uv: 4000,
-    pv: 4500,
-    amt: 5000,
-  },
-  {
-    name: 'Sendai',
-    uv: 3000,
-    pv: 4000,
-    amt: 4500,
-  },
-];
+import data from '@/mocks/cityData.json';
 
 const ComposedChartSample: React.FC = () => {
   return (

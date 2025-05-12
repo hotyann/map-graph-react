@@ -1,0 +1,99 @@
+{
+  "name": "収入",
+  "value": 100,
+  "children": [
+    {
+      "name": "給与",
+      "fill": "#264653",
+      "value": 30,
+      "children": [
+        {
+          "name": "基本給",
+          "value": 10
+        },
+        {
+          "name": "ボーナス",
+          "value": 5
+        },
+        {
+          "name": "手当",
+          "value": 15,
+          "children": [
+            {
+              "name": "通勤手当",
+              "value": 5
+            },
+            {
+              "name": "住宅手当",
+              "value": 5
+            },
+            {
+              "name": "家族手当",
+              "value": 5,
+              "children": [
+                {
+                  "name": "扶養手当",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "副業",
+      "fill": "#2a9d8f",
+      "value": 20,
+      "children": [
+        {
+          "name": "フリーランス",
+          "value": 10
+        },
+        {
+          "name": "投資収益",
+          "value": 10,
+          "children": [
+            {
+              "name": "株式",
+              "value": 5
+            },
+            {
+              "name": "暗号資産",
+              "value": 3
+            },
+            {
+              "name": "不動産",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "貯金",
+      "fill": "#e9c46a",
+      "value": 20
+    },
+    {
+      "name": "支出",
+      "fill": "#F4A261",
+      "value": 10,
+      "children": [
+        {
+          "name": "食費",
+          "value": 5
+        },
+        {
+          "name": "光熱費",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "その他",
+      "fill": "#e76f51",
+      "value": 20
+    }
+  ]
+}
