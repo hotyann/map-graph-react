@@ -15,7 +15,7 @@ const NotFound = SuspenseLazy(
 const routes: Array<RouteObject> = [
   {
     path: '/',
-    element: <Navigate to="graph" />,
+    element: <Navigate to="map" />,
   },
   {
     path: 'map',

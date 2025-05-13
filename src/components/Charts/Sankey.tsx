@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveContainer, Sankey } from 'recharts';
-import data from '@/mocks/sankeyData.json';
+import data from '@/data/sankeyData.json';
 
 const colors = ['#3C898E', '#486DF0', '#6F50E5'];
 

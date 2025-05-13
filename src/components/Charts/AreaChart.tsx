@@ -7,7 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts';
-import data from '@/mocks/cityData.json';
+import data from '@/data/cityData.json';
 
 const AreaChartSample: React.FC = () => {
   return (

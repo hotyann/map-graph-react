@@ -1,6 +1,6 @@
 import React from 'react';
 import { FunnelChart, Funnel, LabelList, Tooltip } from 'recharts';
-import data from '@/mocks/funnelData.json';
+import data from '@/data/funnelData.json';
 
 const FunnelChartSample: React.FC = () => {
   return (

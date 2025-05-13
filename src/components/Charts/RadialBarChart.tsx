@@ -1,6 +1,6 @@
 import React from 'react';
 import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts';
-import data from '@/mocks/radialBarData.json';
+import data from '@/data/radialBarData.json';
 
 const RadialBarChartSample: React.FC = () => {
   return (
