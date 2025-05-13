@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveContainer, SunburstChart } from 'recharts';
-import data from '@/mocks/sunburstData.json';
+import data from '@/data/sunburstData.json';
 
 const SunburstChartSample: React.FC = () => {
   return (

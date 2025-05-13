@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie } from 'recharts';
-import data01 from '@/mocks/pieData01.json';
-import data02 from '@/mocks/pieData02.json';
+import data01 from '@/data/pieData01.json';
+import data02 from '@/data/pieData02.json';
 
 const PieChartSample: React.FC = () => {
   return (

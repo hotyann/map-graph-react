@@ -1,6 +1,6 @@
 import React from 'react';
 import { Treemap } from 'recharts';
-import data from '@/mocks/treemapData.json';
+import data from '@/data/treemapData.json';
 
 const TreemapSample: React.FC = () => {
   return (

@@ -9,8 +9,8 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import data01 from '@/mocks/scatterData01.json';
-import data02 from '@/mocks/scatterData02.json';
+import data01 from '@/data/scatterData01.json';
+import data02 from '@/data/scatterData02.json';
 
 const ScatterChartSample: React.FC = () => {
   return (

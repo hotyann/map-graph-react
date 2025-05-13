@@ -7,7 +7,7 @@ import {
   Radar,
   Legend,
 } from 'recharts';
-import data from '@/mocks/radarData.json';
+import data from '@/data/radarData.json';
 
 const RadarChartSample: React.FC = () => {
   return (

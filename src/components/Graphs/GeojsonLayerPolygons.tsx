@@ -29,7 +29,6 @@ export const COLOR_SCALE = scaleThreshold<number, Color>()
     [127, 205, 187],
     [199, 233, 180],
     [237, 248, 177],
-    // zero
     [255, 255, 204],
     [255, 237, 160],
     [254, 217, 118],
