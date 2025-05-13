@@ -34,7 +34,9 @@ const options: OptionType[] = [
 ];
 
 const GraphSample: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
+  const [selectedOption, setSelectedOption] = useState<OptionType | null>(
+    options[0]
+  );
 
   const renderChart = () => {
     switch (selectedOption?.value) {
@@ -68,13 +70,15 @@ const GraphSample: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
-      <Select
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
-      />
-      <div className="flex flex-col items-center gap-4 mt-4">
+    <div className="h-full relative overflow-hidden">
+      <div className="absolute top-2 right-4 z-10 w-1/4">
+        <Select
+          defaultValue={selectedOption}
+          onChange={setSelectedOption}
+          options={options}
+        />
+      </div>
+      <div className="flex flex-col items-center gap-4 mt-20">
         {renderChart()}
       </div>
     </div>

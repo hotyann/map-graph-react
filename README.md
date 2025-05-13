@@ -20,6 +20,23 @@ Local Development URL: http://localhost:3000/
 
 ---
 
+## 🔑 Environment Variables (`.env`)
+
+The project uses a `.env` file to manage environment-specific variables. This file is not included in version control (ignored by `.gitignore`) to protect sensitive information.
+
+Example `.env` File:
+
+```
+MapboxAccessToken=your-mapbox-access-token
+```
+
+How to Use:
+
+1. Create a `.env` file in the root of your project.
+2. Add the required environment variables (e.g., MapboxAccessToken).
+
+---
+
 ## 🚀 Setup
 
 1️⃣ Install dependencies:
@@ -124,11 +141,12 @@ Key Features:
   ├── components/          # Reusable UI components
       ├── Charts/          # Chart components (e.g., AreaChart, BarChart)
       ├── Graphs/          # Graph components (e.g., ArcLayer, ContourLayer)
+      ├── Layout/          # Layout components (e.g., Navbar)
       ├── SuspenseLazy/    # Lazy-loaded components for performance optimization
   ├── data/                # Static or mock data for the application
   ├── pages/               # Page-level components (mapped to routes)
-      ├── Graph/           # Pages related to graph visualizations (uses Charts components)
-      ├── Map/             # Pages related to map visualizations (uses Graphs components)
+      ├── Graph/           # Pages for graph visualizations (uses Charts components)
+      ├── Map/             # Pages for map visualizations (uses Graphs components)
       ├── NotFound/        # 404 error page for unmatched routes
   ├── router/              # React Router configuration and route definitions
   ├── styles/              # Global styles and TailwindCSS configuration
@@ -136,13 +154,15 @@ Key Features:
   ├── App.tsx              # Main application component
   └── index.tsx            # Application entry point
 
-/.gitignore                # Files and directories to ignore in version control
-/.prettierrc               # Prettier configuration for code formatting
-/eslint.config.mjs         # ESLint configuration for linting
-/jest.config.js            # Jest configuration for testing
-/jest.setup.ts             # Jest setup file (e.g., jest-dom)
-/package.json              # Project metadata and dependencies
-/postcss.config.js         # PostCSS configuration (used by TailwindCSS)
-/tsconfig.json             # TypeScript configuration
-/webpack.config.js         # Webpack configuration for bundling
+# Configuration and Setup Files
+.env                       # Environment variables
+.gitignore                 # Files and directories to ignore in version control
+.prettierrc                # Prettier configuration for code formatting
+.eslint.config.mjs         # ESLint configuration for linting
+.jest.config.js            # Jest configuration for testing
+.jest.setup.ts             # Jest setup file (e.g., jest-dom)
+.package.json              # Project metadata and dependencies
+.postcss.config.js         # PostCSS configuration (used by TailwindCSS)
+.tsconfig.json             # TypeScript configuration
+.webpack.config.js         # Webpack configuration for bundling
 ```

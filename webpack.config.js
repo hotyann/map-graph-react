@@ -7,6 +7,8 @@ const { DefinePlugin } = require('webpack');
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+require('dotenv').config();
+
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
   const shouldAnalyze = env && env.analyze;
@@ -91,6 +93,9 @@ module.exports = (env, argv) => {
       new DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(
           isProduction ? 'production' : 'development'
+        ),
+        'process.env.MapboxAccessToken': JSON.stringify(
+          process.env.MapboxAccessToken
         ),
       }),
       ...(isProduction
